@@ -1,0 +1,1 @@
+export const SERIALIZE_DTO_KEY = 'serialize_dto_key';
