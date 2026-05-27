@@ -1,6 +1,6 @@
 # NestJS Social Media
 
-**full social media real time chat** built with NestJS. (Not completed yet)
+**full social media real time chat** built with Node.js, NestJS and more...
 
 ## FEATURES
 
@@ -18,10 +18,11 @@
 - **Node.js** - JavaScript runtime
 - **NestJS** - Web Framework
 - **TypeORM** - SQL Database orm
+- **PostgreSQL** - Database
 - **JWT** - Authentication
 - **multer** - uploading files
 - **cookie-parser** - parsing cookies
 - **bcryptjs** - hashing users password in DB
 - And much more...
 
-## Created by alireza-csc
+## Created by alireza hakimi
