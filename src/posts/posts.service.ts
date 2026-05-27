@@ -38,8 +38,9 @@ export class PostsService {
     const upload = await this.uploadsService.findOneUpload(
       createPostDto.fileId,
     );
-    if (upload.user.id !== user.id)
+    if (upload.user.id !== user.id) {
       throw new ForbiddenException("you didn't upload this file");
+    }
 
     // check if file exists in another post
     const post = await this.postsRepository.findOne({
@@ -192,5 +193,27 @@ export class PostsService {
       1
     );
     return await this.postsRepository.save(post);
+  }
+
+  public async deleteOnePostAdmin(id: string) {
+    return await this.postsRepository.delete({ id });
+  }
+
+  public async findUserPosts(userId: string, paginationQueryDto: PaginationQueryDto) {
+    return await this.paginationService.paginate(
+      this.postsRepository,
+      paginationQueryDto,
+      {
+        where: ['author', 'id', userId]
+      }
+    );
+  }
+
+  public async findUserAllPosts(userId: string) {
+    return await this.postsRepository.find({
+      where: {
+        author: { id: userId }
+      }
+    });
   }
 }

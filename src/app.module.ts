@@ -33,6 +33,7 @@ import { MailModule } from './mail/mail.module';
 import { VerificationCodeModule } from './verification-code/verification-code.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { RolesGuard } from './auth/guards/roles.guard';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [
@@ -55,7 +56,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
     }),
     ThrottlerModule.forRoot([{
       ttl: 60000,
-      limit: 20
+      limit: 30
     }]),
     UsersModule,
     AuthModule,
@@ -72,6 +73,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
     MessagesModule,
     MailModule,
     VerificationCodeModule,
+    NotificationsModule
   ],
   providers: [
     {

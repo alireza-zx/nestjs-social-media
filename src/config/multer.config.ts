@@ -5,7 +5,7 @@ import slugify from 'slugify';
 
 export const multerOptionsPosts = {
   storage: multer.diskStorage({
-    destination: path.join(process.cwd(), 'uploads', 'posts'),
+    destination: path.join(__dirname, '..', '..', 'uploads', 'posts'),
     filename(req, file, callback) {
       let name: string = '';
       // @ts-ignore
@@ -33,7 +33,7 @@ export const multerOptionsPosts = {
 
 export const multerOptionsAvatars = {
   storage: multer.diskStorage({
-    destination: path.join(process.cwd(), 'uploads', 'avatars'),
+    destination: path.join(__dirname, '..', '..', 'uploads', 'avatars'),
     filename(req, file, callback) {
       let name: string = '';
       // @ts-ignore
@@ -61,7 +61,7 @@ export const multerOptionsAvatars = {
 
 export const multerOptionsReels = {
   storage: multer.diskStorage({
-    destination: path.join(process.cwd(), 'uploads', 'reels'),
+    destination: path.join(__dirname, '..', '..', 'uploads', 'reels'),
     filename(req, file, callback) {
       let name: string = '';
       // @ts-ignore

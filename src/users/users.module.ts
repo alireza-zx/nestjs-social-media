@@ -9,6 +9,7 @@ import { JwtAccessModule } from '../auth/jwt/access/jwt.access.module';
 import { JwtRefreshModule } from '../auth/jwt/refresh/jwt.refresh.module';
 import { UploadsModule } from 'src/uploads/uploads.module';
 import { VerificationCodeModule } from 'src/verification-code/verification-code.module';
+import { PaginationModule } from 'src/pagination/pagination.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { VerificationCodeModule } from 'src/verification-code/verification-code.
     JwtAccessModule,
     JwtRefreshModule,
     UploadsModule,
-    VerificationCodeModule
+    VerificationCodeModule,
+    PaginationModule,
   ],
   controllers: [UsersController],
   providers: [UsersService],

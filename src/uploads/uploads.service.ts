@@ -98,4 +98,12 @@ export class UploadsService {
     );
     await this.uploadsRepository.remove(upload);
   }
+
+  public async findUserUploads(userId: string) {
+    return await this.uploadsRepository.find({
+      where: {
+        user: { id: userId }
+      }
+    });
+  }
 }

@@ -1,3 +1,4 @@
+import { Worker } from 'worker_threads';
 import {
   BadRequestException,
   forwardRef,
@@ -9,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
-import { Repository } from 'typeorm';
+import { ILike, Like, Repository } from 'typeorm';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { HashPasswordProvider } from '../auth/providers/hash-password.provider';
 import { SessionsService } from '../sessions/sessions.service';
@@ -20,6 +21,10 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { ConfigService } from '@nestjs/config';
 import { UploadsService } from 'src/uploads/uploads.service';
 import { VerificationCodeService } from 'src/verification-code/verification-code.service';
+import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
+import { PaginationService } from 'src/pagination/pagination.service';
+import { PostsService } from 'src/posts/posts.service';
+import path from 'path';
 
 @Injectable()
 export class UsersService {
@@ -47,7 +52,10 @@ export class UsersService {
     private readonly uploadsService: UploadsService,
 
     // Inject VerificationCodeService
-    private readonly verificationCodeService: VerificationCodeService
+    private readonly verificationCodeService: VerificationCodeService,
+
+    // Inject PaginationService
+    private readonly paginationService: PaginationService
   ) {}
 
   public async createUser(createUserDto: CreateUserDto, verificationCode: number | undefined) {
@@ -60,6 +68,7 @@ export class UsersService {
     // 1 & 2) verify or send email
     // 3) create user
     const userInstance = this.usersRepository.create(createUserDto);
+    userInstance.username = userInstance.username.toLowerCase();
     // 4) hash password
     userInstance.password = await this.hashPasswordProvider.hashPassword(
       userInstance.password,
@@ -90,6 +99,16 @@ export class UsersService {
     const user = await this.usersRepository.findOneBy({ id });
     if (!user) throw new NotFoundException('user not found');
     return user;
+  }
+
+  public async findUsersByUsername(username: string, paginationQueryDto: PaginationQueryDto) {
+    return await this.paginationService.paginate(
+      this.usersRepository,
+      paginationQueryDto,
+      {
+        where: ['username', 'none', ILike(`${username}%`)]
+      }
+    );
   }
 
   public async updateUser(user: User, updateUserDto: UpdateUserDto) {
@@ -161,5 +180,33 @@ export class UsersService {
     );
 
     return await this.usersRepository.save(user);
+  }
+
+  public async findAllUsers(paginationQueryDto: PaginationQueryDto) {
+    return await this.paginationService.paginate(
+      this.usersRepository,
+      paginationQueryDto
+    );
+  }
+
+  public async updateOneUser(id: string, updateUserDto: UpdateUserDto) {
+    const user = await this.findOneUserById(id);
+    if (updateUserDto.password) {
+      user.passwordLastChanged = new Date();
+      user.password = await this.hashPasswordProvider.hashPassword(
+        updateUserDto.password,
+      );
+    }
+    user.firstname = updateUserDto.firstname ?? user.firstname;
+    user.lastname = updateUserDto.lastname ?? user.lastname;
+    user.username = updateUserDto.username ?? user.username;
+    user.email = updateUserDto.email ?? user.email;
+    user.phone = updateUserDto.phone ?? user.phone;
+
+    return await this.usersRepository.save(user);
+  }
+
+  public async deleteOneUser(id: string) {
+    return await this.usersRepository.delete({ id });
   }
 }

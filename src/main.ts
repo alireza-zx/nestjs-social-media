@@ -9,6 +9,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // set global prefix
   app.setGlobalPrefix('/api');
+  
   // Validation Pipe
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
@@ -22,8 +23,8 @@ async function bootstrap() {
   // cors
   app.enableCors();
   // helmet
-  app.use(helmet())
+  app.use(helmet());
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
 bootstrap();

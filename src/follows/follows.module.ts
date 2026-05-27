@@ -5,12 +5,14 @@ import { Follow } from './follow.entity';
 import { FollowsController } from './follows.controller';
 import { UsersModule } from 'src/users/users.module';
 import { PaginationModule } from 'src/pagination/pagination.module';
+import { NotificationsModule } from 'src/notifications/notifications.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Follow]),
     UsersModule,
-    PaginationModule
+    PaginationModule,
+    NotificationsModule
   ],
   providers: [FollowsService],
   exports: [FollowsService],

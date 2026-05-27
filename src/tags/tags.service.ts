@@ -35,6 +35,7 @@ export class TagsService {
       where: {
         id: In(ids),
       },
+      relations: ['posts']
     });
   }
 
@@ -62,5 +63,9 @@ export class TagsService {
       );
     }
     return await this.tagsRepository.save(tags);
+  }
+
+  public async deleteTagAdmin(id: string) {
+    return await this.tagsRepository.delete({ id });
   }
 }

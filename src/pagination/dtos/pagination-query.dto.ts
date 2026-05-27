@@ -4,8 +4,8 @@ import { OrderBy } from "../enums/order.enum";
 export class PaginationQueryDto {
   @IsOptional()
   @IsInt()
-  @Max(50)
-  limit: number = 20;
+  @Max(40)
+  limit: number = 10;
 
   @IsOptional()
   @IsInt()

@@ -1,4 +1,4 @@
-import { OnGatewayConnection, OnGatewayDisconnect, WsException } from '@nestjs/websockets';
+import { OnGatewayConnection, OnGatewayDisconnect } from '@nestjs/websockets';
 import { AuthService } from 'src/auth/auth.service';
 import { UnauthorizedException } from '@nestjs/common';
 import { Socket } from 'socket.io';

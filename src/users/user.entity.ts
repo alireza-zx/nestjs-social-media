@@ -8,6 +8,7 @@ import { Like } from "src/likes/like.entity";
 import { Upload } from "src/uploads/upload.entity";
 import { Follow } from "src/follows/follow.entity";
 import { Conversation } from "src/conversations/conversation.entity";
+import { Notification } from "src/notifications/notification.entity";
 
 @Entity()
 export class User {
@@ -133,4 +134,7 @@ export class User {
 
   @OneToMany(() => Conversation, (conversation) => conversation.user2)
   conversations2: Conversation[];
+
+  @OneToMany(() => Notification, (notification) => notification.user)
+  notifications: Notification[];
 }

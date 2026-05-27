@@ -1,9 +1,12 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
 import { TagsService } from './tags.service';
 import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
 import { CreateTagDto } from './dtos/create-tag.dto';
 import { Serialize } from 'src/common/decorators/response-serializer.decorator';
 import { TagResponseDto } from './dtos/tag-response.dto';
+import { Role } from 'src/common/decorators/role.decorator';
+import { Roles } from 'src/users/enums/roles.enum';
+import { Throttle } from '@nestjs/throttler';
 
 @Controller('tags')
 @Serialize(TagResponseDto)
@@ -26,5 +29,12 @@ export class TagsController {
   @Post()
   public createTag(@Body() createTagDto: CreateTagDto) {
     return this.tagsService.createTag(createTagDto);
+  }
+
+  @Delete('/:id')
+  @Throttle({ default: { limit: 300, ttl: 60000 } })
+  @Role([Roles.ADMIN])
+  public async deleteTagAdmin(@Param('id') id: string) {
+    return this.tagsService.deleteTagAdmin(id);
   }
 }

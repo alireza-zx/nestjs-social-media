@@ -10,6 +10,7 @@ import { User } from 'src/users/user.entity';
 import { UsersService } from 'src/users/users.service';
 import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
 import { PaginationService } from 'src/pagination/pagination.service';
+import { NotificationsService } from 'src/notifications/notifications.service';
 
 @Injectable()
 export class FollowsService {
@@ -21,6 +22,8 @@ export class FollowsService {
     private readonly usersService: UsersService,
     // Inject PaginationService
     private readonly paginationService: PaginationService,
+    // Inject NotificationService
+    private readonly notificationsService: NotificationsService
   ) {}
 
   public async follow(follower: User, followingId: string) {
@@ -37,6 +40,11 @@ export class FollowsService {
 
     await this.usersService.addFollowing(follower);
     await this.usersService.addFollower(following);
+
+    await this.notificationsService.createNotification(following, {
+      title: `${follower.username} started following you!`,
+      description: ''
+    });
 
     return follow;
   }

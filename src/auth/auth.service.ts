@@ -16,6 +16,7 @@ import { User } from '../users/user.entity';
 import { UserPayload } from './interfaces/user-payload.interface';
 import { Socket } from 'socket.io';
 import { MailService } from 'src/mail/mail.service';
+import { NotificationsService } from 'src/notifications/notifications.service';
 
 @Injectable()
 export class AuthService {
@@ -33,12 +34,20 @@ export class AuthService {
     @Inject(forwardRef(() => SessionsService))
     private readonly sessionsService: SessionsService,
     // Inject MailService
-    private readonly mailService: MailService
+    private readonly mailService: MailService,
+    // Inject NotificatinsGateway
+    @Inject(forwardRef(() => NotificationsService))
+    private readonly notificationsService: NotificationsService
   ) {}
 
   public async signup(createUserDto: CreateUserDto, verificationCode: number | undefined) {
     // 1) create user & session
-    return await this.usersService.createUser(createUserDto, verificationCode);
+    const user = await this.usersService.createUser(createUserDto, verificationCode);
+    
+    await this.notificationsService.createNotification(user.user, {
+      title: `Dear ${user.user.firstname}, Welcome to NestJS social media!`,
+      description: ''
+    });
   }
 
   public async signin(signInDto: SignInDto) {
@@ -64,6 +73,12 @@ export class AuthService {
     // 4) create session
     const { savedSession, expiresAt } =
       await this.sessionsService.createSession(user, refreshToken);
+
+    await this.notificationsService.createNotification(user, {
+      title: `Dear ${user.firstname}, We detected a new sign-in to your account!`,
+      description: "if that isn't you, you can terminate other sessions in settings"
+    });
+
     return { user, accessToken, refreshToken, savedSession, expiresAt };
   }
 
@@ -94,6 +109,7 @@ export class AuthService {
         refreshToken,
         oldRefreshToken,
       );
+    
     return { user, accessToken, refreshToken, savedSession, expiresAt };
   }
 

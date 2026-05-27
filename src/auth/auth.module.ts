@@ -11,6 +11,7 @@ import { JwtRefreshModule } from './jwt/refresh/jwt.refresh.module';
 import { CookieAuthGuard } from './guards/cookieAuth.guard';
 import { HashTokenProvider } from './providers/hash-token.provider';
 import { SessionsModule } from '../sessions/sessions.module';
+import { NotificationsModule } from 'src/notifications/notifications.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { SessionsModule } from '../sessions/sessions.module';
     forwardRef(() => SessionsModule),
     JwtAccessModule,
     JwtRefreshModule,
+    forwardRef(() => NotificationsModule)
   ],
   controllers: [AuthController],
   providers: [
