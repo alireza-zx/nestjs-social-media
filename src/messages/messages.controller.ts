@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
 import { MessagesService } from './messages.service';
-import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/user.entity';
 import { CreateMessageDto } from './dtos/create-message.dto';
 import { UpdateMessageDto } from './dtos/update-message.dto';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { MessageResponseDto } from './dtos/message-response.dto';
 
 @Controller('messages')

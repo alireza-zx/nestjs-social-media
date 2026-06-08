@@ -1,7 +1,7 @@
 import { ArgumentsHost, BadRequestException, Catch, ExceptionFilter, HttpException, HttpStatus, Logger, UnauthorizedException } from '@nestjs/common';
 import { HttpAdapterHost } from '@nestjs/core';
 import { TokenExpiredError, JsonWebTokenError } from 'jsonwebtoken';
-import { AppError } from 'src/utils/appError';
+import { AppError } from '../../utils/appError';
 import { QueryFailedError, EntityPropertyNotFoundError } from 'typeorm';
 
 @Catch()

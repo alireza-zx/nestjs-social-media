@@ -2,11 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Comment } from './comment.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
+import { User } from '../users/user.entity';
 import { CreateCommentDto } from './dtos/create-comment.dto';
-import { PostsService } from 'src/posts/posts.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { PaginationService } from 'src/pagination/pagination.service';
+import { PostsService } from '../posts/posts.service';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { PaginationService } from '../pagination/pagination.service';
 
 @Injectable()
 export class CommentsService {

@@ -6,11 +6,11 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Follow } from './follow.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
-import { UsersService } from 'src/users/users.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { PaginationService } from 'src/pagination/pagination.service';
-import { NotificationsService } from 'src/notifications/notifications.service';
+import { User } from '../users/user.entity';
+import { UsersService } from '../users/users.service';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { PaginationService } from '../pagination/pagination.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class FollowsService {

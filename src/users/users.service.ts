@@ -19,11 +19,11 @@ import { JwtRefreshService } from '../auth/jwt/refresh/jwt.refresh.service';
 import { UserPayload } from '../auth/interfaces/user-payload.interface';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { ConfigService } from '@nestjs/config';
-import { UploadsService } from 'src/uploads/uploads.service';
-import { VerificationCodeService } from 'src/verification-code/verification-code.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { PaginationService } from 'src/pagination/pagination.service';
-import { PostsService } from 'src/posts/posts.service';
+import { UploadsService } from '../uploads/uploads.service';
+import { VerificationCodeService } from '../verification-code/verification-code.service';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { PaginationService } from '../pagination/pagination.service';
+import { PostsService } from '../posts/posts.service';
 import path from 'path';
 
 @Injectable()

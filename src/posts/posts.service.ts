@@ -8,15 +8,15 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Post } from './post.entity';
 import { Repository } from 'typeorm';
 import { CreatePostDto } from './dtos/create-post.dto';
-import { User } from 'src/users/user.entity';
+import { User } from '../users/user.entity';
 import slugify from 'slugify';
 import { ConfigService } from '@nestjs/config';
-import { UploadsService } from 'src/uploads/uploads.service';
+import { UploadsService } from '../uploads/uploads.service';
 import { UpdatePostDto } from './dtos/update-post.dto';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { TagsService } from 'src/tags/tags.service';
-import { PaginationService } from 'src/pagination/pagination.service';
-import { Tag } from 'src/tags/tag.entity';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { TagsService } from '../tags/tags.service';
+import { PaginationService } from '../pagination/pagination.service';
+import { Tag } from '../tags/tag.entity';
 
 @Injectable()
 export class PostsService {

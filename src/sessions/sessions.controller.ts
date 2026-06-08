@@ -3,7 +3,7 @@ import { SessionsService } from './sessions.service';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { User } from '../users/user.entity';
 import { Cookie } from '../common/decorators/cookie.decorator';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { SessionResponseDto } from './dtos/session-response.dto';
 
 @Controller('sessions')

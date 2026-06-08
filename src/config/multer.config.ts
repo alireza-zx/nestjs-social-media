@@ -1,6 +1,6 @@
 import path from 'path';
 import multer from 'multer';
-import { AppError } from 'src/utils/appError';
+import { AppError } from '../utils/appError';
 import slugify from 'slugify';
 
 export const multerOptionsPosts = {

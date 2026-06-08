@@ -2,10 +2,10 @@ import { BadRequestException, Injectable, NotFoundException } from '@nestjs/comm
 import { InjectRepository } from '@nestjs/typeorm';
 import { Conversation } from './conversation.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
-import { UsersService } from 'src/users/users.service';
-import { PaginationService } from 'src/pagination/pagination.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
+import { User } from '../users/user.entity';
+import { UsersService } from '../users/users.service';
+import { PaginationService } from '../pagination/pagination.service';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
 import { ConversationsGateway } from './conversations.gateway';
 
 @Injectable()

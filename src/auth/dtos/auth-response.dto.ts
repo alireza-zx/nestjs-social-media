@@ -1,6 +1,6 @@
 import { Expose, Type } from "class-transformer";
-import { SessionResponseDto } from "src/sessions/dtos/session-response.dto";
-import { UserResponseDto } from "src/users/dtos/user-response.dto";
+import { SessionResponseDto } from "../../sessions/dtos/session-response.dto";
+import { UserResponseDto } from "../../users/dtos/user-response.dto";
 
 export class AuthResponseDto {
   @Expose()

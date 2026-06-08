@@ -4,9 +4,9 @@ import { ConversationsService } from './conversations.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Conversation } from './conversation.entity';
 import { ConversationsGateway } from './conversations.gateway';
-import { UsersModule } from 'src/users/users.module';
-import { PaginationModule } from 'src/pagination/pagination.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { UsersModule } from '../users/users.module';
+import { PaginationModule } from '../pagination/pagination.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [

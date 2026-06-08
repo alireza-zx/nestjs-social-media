@@ -1,11 +1,11 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
 import { TagsService } from './tags.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
 import { CreateTagDto } from './dtos/create-tag.dto';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { TagResponseDto } from './dtos/tag-response.dto';
-import { Role } from 'src/common/decorators/role.decorator';
-import { Roles } from 'src/users/enums/roles.enum';
+import { Role } from '../common/decorators/role.decorator';
+import { Roles } from '../users/enums/roles.enum';
 import { Throttle } from '@nestjs/throttler';
 
 @Controller('tags')

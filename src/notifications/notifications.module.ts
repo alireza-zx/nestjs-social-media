@@ -4,8 +4,8 @@ import { NotificationsController } from './notifications.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Notification } from './notification.entity';
 import { NotificationsGateway } from './notifications.gateway';
-import { AuthModule } from 'src/auth/auth.module';
-import { PaginationModule } from 'src/pagination/pagination.module';
+import { AuthModule } from '../auth/auth.module';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @Module({
   imports: [

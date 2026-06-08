@@ -1,9 +1,9 @@
 import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
 import { Message } from './message.entity';
-import { AuthService } from 'src/auth/auth.service';
-import { BaseGateway } from 'src/common/gateways/base.gateway';
-import { EventsPayloadsMap, ServerEventNames } from 'src/common/events/websocket-events.interface';
+import { AuthService } from '../auth/auth.service';
+import { BaseGateway } from '../common/gateways/base.gateway';
+import { EventsPayloadsMap, ServerEventNames } from '../common/events/websocket-events.interface';
 
 @WebSocketGateway({
   namespace: '/chat',

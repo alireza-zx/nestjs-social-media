@@ -1,5 +1,5 @@
-import { Message } from "src/messages/message.entity";
-import { User } from "src/users/user.entity";
+import { Message } from "../messages/message.entity";
+import { User } from "../users/user.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
 
 @Entity()

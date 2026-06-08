@@ -1,7 +1,7 @@
-import { MimeTypes } from "src/posts/enum/mime-types.enum";
-import { PostTypes } from "src/posts/enum/post-types.enum";
-import { Post } from "src/posts/post.entity";
-import { User } from "src/users/user.entity";
+import { MimeTypes } from "../posts/enum/mime-types.enum";
+import { PostTypes } from "../posts/enum/post-types.enum";
+import { Post } from "../posts/post.entity";
+import { User } from "../users/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

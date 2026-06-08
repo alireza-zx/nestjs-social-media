@@ -6,12 +6,12 @@ import { UpdateUserDto } from './dtos/update-user.dto';
 import { clearCookies } from '../auth/utils/clear-cookies';
 import { type Response } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { multerOptionsAvatars } from 'src/config/multer.config';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { multerOptionsAvatars } from '../config/multer.config';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { UserResponseDto } from './dtos/user-response.dto';
-import { Role } from 'src/common/decorators/role.decorator';
+import { Role } from '../common/decorators/role.decorator';
 import { Roles } from './enums/roles.enum';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
 import { Throttle } from '@nestjs/throttler';
 import { ProfileResponseDto } from './dtos/profile-response.dto';
 

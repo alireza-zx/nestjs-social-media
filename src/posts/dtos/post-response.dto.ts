@@ -1,6 +1,6 @@
 import { Expose, Type } from "class-transformer";
-import { TagResponseDto } from "src/tags/dtos/tag-response.dto";
-import { UserResponseDto } from "src/users/dtos/user-response.dto";
+import { TagResponseDto } from "../../tags/dtos/tag-response.dto";
+import { UserResponseDto } from "../../users/dtos/user-response.dto";
 
 export class PostResponseDto {
   @Expose()

@@ -9,10 +9,10 @@ import {
 import { InjectRepository } from '@nestjs/typeorm';
 import { Upload } from './upload.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
+import { User } from '../users/user.entity';
 import { ConfigService } from '@nestjs/config';
 import { nanoid } from 'nanoid';
-import { PostTypes } from 'src/posts/enum/post-types.enum';
+import { PostTypes } from '../posts/enum/post-types.enum';
 
 @Injectable()
 export class UploadsService {

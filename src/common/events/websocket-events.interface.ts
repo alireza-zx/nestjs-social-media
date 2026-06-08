@@ -1,5 +1,5 @@
-import { Message } from "src/messages/message.entity";
-import { Notification } from "src/notifications/notification.entity";
+import { Message } from "../../messages/message.entity";
+import { Notification } from "../../notifications/notification.entity";
 
 export enum ServerEventNames {
   NEW_MESSAGE = 'server:new_message',

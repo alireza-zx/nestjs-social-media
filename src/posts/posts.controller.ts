@@ -1,14 +1,14 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { PostsService } from './posts.service';
-import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/user.entity';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { UpdatePostDto } from './dtos/update-post.dto';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { PostResponseDto } from './dtos/post-response.dto';
-import { Role } from 'src/common/decorators/role.decorator';
-import { Roles } from 'src/users/enums/roles.enum';
+import { Role } from '../common/decorators/role.decorator';
+import { Roles } from '../users/enums/roles.enum';
 import { Throttle } from '@nestjs/throttler';
 
 @Controller('posts')

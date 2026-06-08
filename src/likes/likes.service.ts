@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Like } from './like.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
-import { PostsService } from 'src/posts/posts.service';
-import { PaginationService } from 'src/pagination/pagination.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
+import { User } from '../users/user.entity';
+import { PostsService } from '../posts/posts.service';
+import { PaginationService } from '../pagination/pagination.service';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
 
 @Injectable()
 export class LikesService {

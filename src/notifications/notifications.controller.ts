@@ -1,8 +1,8 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { NotificationsService } from './notifications.service';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/user.entity';
 
 @Controller('notifications')
 export class NotificationsController {

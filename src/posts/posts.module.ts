@@ -3,9 +3,9 @@ import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Post } from './post.entity';
-import { UploadsModule } from 'src/uploads/uploads.module';
-import { TagsModule } from 'src/tags/tags.module';
-import { PaginationModule } from 'src/pagination/pagination.module';
+import { UploadsModule } from '../uploads/uploads.module';
+import { TagsModule } from '../tags/tags.module';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @Module({
   imports: [

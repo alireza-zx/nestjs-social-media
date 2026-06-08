@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Notification } from './notification.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/users/user.entity';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { PaginationService } from 'src/pagination/pagination.service';
+import { User } from '../users/user.entity';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { PaginationService } from '../pagination/pagination.service';
 import { CreateNotificationDto } from './dtos/create-notification.dto';
 import { NotificationsGateway } from './notifications.gateway';
 

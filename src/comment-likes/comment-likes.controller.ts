@@ -1,8 +1,8 @@
 import { Controller, Delete, Param, Post } from '@nestjs/common';
 import { CommentLikesService } from './comment-likes.service';
-import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/user.entity';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { CommentLikeResponseDto } from './dtos/comment-like-response.dto';
 
 @Controller('comment-likes')

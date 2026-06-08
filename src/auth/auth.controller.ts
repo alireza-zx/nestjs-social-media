@@ -5,7 +5,6 @@ import {
   Get,
   HttpCode,
   HttpStatus,
-  ParseIntPipe,
   Post,
   Query,
   Res,
@@ -22,10 +21,11 @@ import { clearCookies } from './utils/clear-cookies';
 import { type Request, type Response } from 'express';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { User } from '../users/user.entity';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { AuthResponseDto } from './dtos/auth-response.dto';
 import { VerificationCodeQueryDto } from './dtos/verification-code-query.dto';
 import { Throttle } from '@nestjs/throttler';
+import { ForgetPasswordDto } from './dtos/forget-password.dto';
 
 @Controller('auth')
 @Serialize(AuthResponseDto)
@@ -75,7 +75,6 @@ export class AuthController {
 
   @Get('/refresh')
   @Auth(AUTH_NONE)
-  @HttpCode(HttpStatus.OK)
   public async refresh(
     @Res({ passthrough: true }) res: Response,
     @Cookie() cookies
@@ -90,6 +89,16 @@ export class AuthController {
       accessToken
     }
   }
+
+  @Post('/forget-password')
+  @Throttle({ default: { limit: 1, ttl: 300000 } })
+  @Auth(AUTH_NONE)
+  public async forgetPassword(
+    @Body() forgetPasswordDto: ForgetPasswordDto
+  ) {
+    return this.authService.
+  }
+
 
   @Delete('/sign-out')
   @HttpCode(HttpStatus.OK)

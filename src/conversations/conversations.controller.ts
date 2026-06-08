@@ -1,9 +1,9 @@
 import { Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ConversationsService } from './conversations.service';
-import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/user.entity';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { ConversationResponseDto } from './dtos/conversation-response.dto';
 
 @Controller('conversations')

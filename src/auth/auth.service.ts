@@ -15,8 +15,8 @@ import { SessionsService } from '../sessions/sessions.service';
 import { User } from '../users/user.entity';
 import { UserPayload } from './interfaces/user-payload.interface';
 import { Socket } from 'socket.io';
-import { MailService } from 'src/mail/mail.service';
-import { NotificationsService } from 'src/notifications/notifications.service';
+import { MailService } from '../mail/mail.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class AuthService {
@@ -48,6 +48,8 @@ export class AuthService {
       title: `Dear ${user.user.firstname}, Welcome to NestJS social media!`,
       description: ''
     });
+
+    return user;
   }
 
   public async signin(signInDto: SignInDto) {

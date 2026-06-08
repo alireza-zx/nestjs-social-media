@@ -7,22 +7,20 @@ import {
   Get,
   Res,
   Param,
-  ConflictException,
-  HttpException,
 } from '@nestjs/common';
 import { UploadsService } from './uploads.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
   multerOptionsPosts,
   multerOptionsReels,
-} from 'src/config/multer.config';
-import { CurrentUser } from 'src/common/decorators/current-user.decorator';
-import { User } from 'src/users/user.entity';
+} from '../config/multer.config';
+import { CurrentUser } from '../common/decorators/current-user.decorator';
+import { User } from '../users/user.entity';
 import { type Response } from 'express';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { UploadResponseDto } from './dtos/upload-response.dto';
-import { Auth } from 'src/common/decorators/auth.decorator';
-import { AUTH_NONE } from 'src/auth/constants/meta-data.consts';
+import { Auth } from '../common/decorators/auth.decorator';
+import { AUTH_NONE } from '../auth/constants/meta-data.consts';
 
 @Controller('uploads')
 export class UploadsController {

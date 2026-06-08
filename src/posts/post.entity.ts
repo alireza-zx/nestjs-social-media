@@ -4,8 +4,8 @@ import { PostTypes } from "./enum/post-types.enum";
 import { Comment } from "../comments/comment.entity";
 import { Like } from "../likes/like.entity";
 import { MimeTypes } from "./enum/mime-types.enum";
-import { Upload } from "src/uploads/upload.entity";
-import { Tag } from "src/tags/tag.entity";
+import { Upload } from "../uploads/upload.entity";
+import { Tag } from "../tags/tag.entity";
 
 @Entity()
 export class Post {

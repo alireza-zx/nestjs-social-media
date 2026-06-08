@@ -3,7 +3,7 @@ import { TagsService } from './tags.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Tag } from './tag.entity';
 import { TagsController } from './tags.controller';
-import { PaginationModule } from 'src/pagination/pagination.module';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @Module({
   imports: [

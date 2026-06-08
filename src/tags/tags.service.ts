@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Tag } from './tag.entity';
 import { In, Repository } from 'typeorm';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
 import { CreateTagDto } from './dtos/create-tag.dto';
 import slugify from 'slugify';
-import { PaginationService } from 'src/pagination/pagination.service';
+import { PaginationService } from '../pagination/pagination.service';
 
 @Injectable()
 export class TagsService {

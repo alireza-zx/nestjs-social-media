@@ -1,6 +1,6 @@
 import { Expose, Type } from "class-transformer";
-import { ConversationResponseDto } from "src/conversations/dtos/conversation-response.dto";
-import { UserResponseDto } from "src/users/dtos/user-response.dto";
+import { ConversationResponseDto } from "../../conversations/dtos/conversation-response.dto";
+import { UserResponseDto } from "../../users/dtos/user-response.dto";
 
 export class MessageResponseDto {
   @Expose()

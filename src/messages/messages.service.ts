@@ -2,13 +2,13 @@ import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Message } from './message.entity';
 import { Repository } from 'typeorm';
-import { UsersService } from 'src/users/users.service';
-import { User } from 'src/users/user.entity';
-import { ConversationsService } from 'src/conversations/conversations.service';
+import { UsersService } from '../users/users.service';
+import { User } from '../users/user.entity';
+import { ConversationsService } from '../conversations/conversations.service';
 import { CreateMessageDto } from './dtos/create-message.dto';
 import { MessagesGateway } from './messages.gateway';
 import { UpdateMessageDto } from './dtos/update-message.dto';
-import { ConversationsGateway } from 'src/conversations/conversations.gateway';
+import { ConversationsGateway } from '../conversations/conversations.gateway';
 
 @Injectable()
 export class MessagesService {

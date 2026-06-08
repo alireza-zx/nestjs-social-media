@@ -1,14 +1,14 @@
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, OneToMany, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Roles } from "./enums/roles.enum";
 import { Session } from "../sessions/session.entity";
-import { Post } from "src/posts/post.entity";
-import { Comment } from "src/comments/comment.entity";
-import { CommentLike } from "src/comment-likes/comment-like.entity";
-import { Like } from "src/likes/like.entity";
-import { Upload } from "src/uploads/upload.entity";
-import { Follow } from "src/follows/follow.entity";
-import { Conversation } from "src/conversations/conversation.entity";
-import { Notification } from "src/notifications/notification.entity";
+import { Post } from "../posts/post.entity";
+import { Comment } from "../comments/comment.entity";
+import { CommentLike } from "../comment-likes/comment-like.entity";
+import { Like } from "../likes/like.entity";
+import { Upload } from "../uploads/upload.entity";
+import { Follow } from "../follows/follow.entity";
+import { Conversation } from "../conversations/conversation.entity";
+import { Notification } from "../notifications/notification.entity";
 
 @Entity()
 export class User {

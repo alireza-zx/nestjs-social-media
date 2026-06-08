@@ -1,10 +1,10 @@
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
-import { AuthService } from 'src/auth/auth.service';
-import { BaseGateway } from 'src/common/gateways/base.gateway';
-import { User } from 'src/users/user.entity';
+import { AuthService } from '../auth/auth.service';
+import { BaseGateway } from '../common/gateways/base.gateway';
+import { User } from '../users/user.entity';
 import { Notification } from './notification.entity';
-import { ServerEventNames } from 'src/common/events/websocket-events.interface';
+import { ServerEventNames } from '../common/events/websocket-events.interface';
 import { forwardRef, Inject } from '@nestjs/common';
 
 @WebSocketGateway({

@@ -3,9 +3,9 @@ import { FollowsService } from './follows.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Follow } from './follow.entity';
 import { FollowsController } from './follows.controller';
-import { UsersModule } from 'src/users/users.module';
-import { PaginationModule } from 'src/pagination/pagination.module';
-import { NotificationsModule } from 'src/notifications/notifications.module';
+import { UsersModule } from '../users/users.module';
+import { PaginationModule } from '../pagination/pagination.module';
+import { NotificationsModule } from '../notifications/notifications.module';
 
 @Module({
   imports: [

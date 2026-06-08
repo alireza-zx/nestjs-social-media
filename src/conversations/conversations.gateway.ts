@@ -1,9 +1,9 @@
 import { NotFoundException } from '@nestjs/common';
 import { SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-import { AuthService } from 'src/auth/auth.service';
-import { BaseGateway } from 'src/common/gateways/base.gateway';
-import { User } from 'src/users/user.entity';
+import { AuthService } from '../auth/auth.service';
+import { BaseGateway } from '../common/gateways/base.gateway';
+import { User } from '../users/user.entity';
 
 @WebSocketGateway({
   namespace: '/chat',
