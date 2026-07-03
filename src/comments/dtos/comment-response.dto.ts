@@ -1,7 +1,7 @@
 import { Expose, Type } from "class-transformer";
-import { CommentLikeResponseDto } from "src/comment-likes/dtos/comment-like-response.dto";
-import { PostResponseDto } from "src/posts/dtos/post-response.dto";
-import { UserResponseDto } from "src/users/dtos/user-response.dto";
+import { CommentLikeResponseDto } from "../../comment-likes/dtos/comment-like-response.dto";
+import { PostResponseDto } from "../../posts/dtos/post-response.dto";
+import { UserResponseDto } from "../../users/dtos/user-response.dto";
 
 export class CommentResponseDto {
   @Expose()

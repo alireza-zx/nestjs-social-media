@@ -10,6 +10,8 @@ import { PostResponseDto } from './dtos/post-response.dto';
 import { Role } from '../common/decorators/role.decorator';
 import { Roles } from '../users/enums/roles.enum';
 import { Throttle } from '@nestjs/throttler';
+import { Auth } from '../common/decorators/auth.decorator';
+import { AUTH_NONE } from '../auth/constants/meta-data.consts';
 
 @Controller('posts')
 @Serialize(PostResponseDto)
@@ -25,6 +27,7 @@ export class PostsController {
   }
 
   @Get()
+  @Auth(AUTH_NONE)
   public findAllPosts(@Query() query: PaginationQueryDto) {
     return this.postsService.findAllPosts(query);
   }

@@ -3,8 +3,8 @@ import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dtos/create-comment.dto';
 import { CurrentUser } from '../common/decorators/current-user.decorator';
 import { User } from '../users/user.entity';
-import { PaginationQueryDto } from 'src/pagination/dtos/pagination-query.dto';
-import { Serialize } from 'src/common/decorators/response-serializer.decorator';
+import { PaginationQueryDto } from '../pagination/dtos/pagination-query.dto';
+import { Serialize } from '../common/decorators/response-serializer.decorator';
 import { CommentResponseDto } from './dtos/comment-response.dto';
 
 @Controller('comments')

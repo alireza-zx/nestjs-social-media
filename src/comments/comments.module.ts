@@ -3,8 +3,8 @@ import { CommentsService } from './comments.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Comment } from './comment.entity';
 import { CommentsController } from './comments.controller';
-import { PostsModule } from 'src/posts/posts.module';
-import { PaginationModule } from 'src/pagination/pagination.module';
+import { PostsModule } from '../posts/posts.module';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @Module({
   imports: [
